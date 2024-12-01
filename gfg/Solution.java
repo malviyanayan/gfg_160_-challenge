@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeSet;
 
 public class Solution{
     
@@ -115,7 +116,7 @@ public class Solution{
     }
 
 
-    // ########## Day-6 ##########
+    // ########## Day-8 ##########
     // ||||||||| Completed ********
     public int maximumProfit(int prices[]) {
         if(prices.length <= 1)return 0;
@@ -135,6 +136,25 @@ public class Solution{
         }
         
         return maxP;
+    }
+
+    // ########## Day-8 ##########
+    // ||||||||| Completed ********
+
+
+    // ########## Day-13 ##########
+    // ||||||||| Completed ********
+    public int missingNumber(int[] arr) {
+        Arrays.sort(arr);
+        int i = 0;
+        while(i<arr.length && arr[i]<1)i++;
+        int ans = 1;
+        while(arr.length>i){
+            if(arr[i]>ans)return ans;
+            if(!(i>0 && arr[i-1]==arr[i]))ans++;
+            i++;
+        }
+        return ans;
     }
 
 
@@ -181,10 +201,16 @@ public class Solution{
         // int[] arr = {7, 6, 4, 3, 1};
         // int[] arr = {1, 3, 6, 9, 11};
         // int[] arr = {1};
-        int[] arr = {};
-        System.out.println(son.maximumProfit(arr));
+        // int[] arr = {};
+        // System.out.println(son.maximumProfit(arr));
 
 
-        // for(int next : arr)System.out.print(next+", ");
+        // day-13
+        // int[] arr = {2, -3, 4, 1, 1, 7};
+        // int[] arr = {5, 3, 2, 5, 1};
+        int[] arr = {8, 0, -1, -4, -3};
+        System.out.println(son.missingNumber(arr));
+
+        for(int next : arr)System.out.print(next+", ");
     }
 }
